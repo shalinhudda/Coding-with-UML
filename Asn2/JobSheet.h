@@ -2,4 +2,6 @@
 #include <stdlib.h>
 #include "LinkedList.h"
 
+class JobSheet {
 
+};
