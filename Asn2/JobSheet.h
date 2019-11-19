@@ -12,11 +12,12 @@ class JobSheet {
 	LinkedList* JobSheetList;
 
 	// Extra
-	double TotalCost = 0;
+	double TotalCost;
 public:
 	void AddItem(int PartNumber, int Quantity, double Cost);
 	void AddLabourItem(std::string LaboutItem, double Cost);
 
+	JobSheet();
 	// Extra
 	LinkedList* GetJobList();
 	double GetTotalCost();

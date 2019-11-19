@@ -123,9 +123,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Car.cpp" />
     <ClCompile Include="Customer.cpp" />
     <ClCompile Include="JobSheet.cpp" />
     <ClCompile Include="Receptionist.cpp" />
+    <ClCompile Include="Store.cpp" />
     <ClCompile Include="Technician.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -7,12 +7,16 @@
 #include <iostream>
 
 class Receptionist;
+class JobSheet;
+class Store;
+class Car;
 
 struct Tires {
 	std::string TireBrand;
 
 	// Good is TRUE, Bad is FALSE
 	bool TireCondition;
+	int TireQuantity;
 };
 
 struct Oil {
@@ -22,14 +26,20 @@ struct Oil {
 
 struct OilFilter {
 	std::string OilFilterType;
+	// good is true and bad is false
+	bool OilFilterStatus;
 };
 
 struct AirFilter {
 	std::string AirFilterType;
+	// good is true and bad is false
+	bool AirFilterStatus;
 };
 
 class Technician {
 	Receptionist* MyReceptionist;
+	Store* MyStore;
+
 public:
 	Tires OldTires;
 	bool CustomerTireStatus = OldTires.TireCondition;

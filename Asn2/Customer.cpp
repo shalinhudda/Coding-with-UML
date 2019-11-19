@@ -17,15 +17,15 @@
 #define	OIL_FILTER_QUANTITY 1
 #define AIR_FILTER_PN 4
 #define AIR_FILTER_COST 15
-#define AIR_FILTER_QUANTITY 2
+#define AIR_FILTER_QUANTITY 1
 
 
 Customer::Customer() {
-	MyNewServiceRecord = new ServiceRecord;
+	MyNewServiceRecord;
 	MyJobSheet = NULL;
 	MyReceptionist = NULL;
 
-	// Setup MyCar here
+	MyCar = new Car;
 	MyOldServiceRecord = new ServiceRecord;
 	Data Oil, OilFilter, AirFilter, Tires;
 	
@@ -80,7 +80,7 @@ void Customer::SetNewServiceRecord() {
 
 void Customer::GiveCarBack() {
 	MyCar = MyReceptionist->CustomerCar;
-	cout << "Recieved service car back from the receptionist" << endl;
+	cout << "Recieved serviced car back from the receptionist" << endl;
 }
 
 //Extra
