@@ -4,25 +4,23 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "JobSheet.h"
-#include "Car.h"
-#include "Receptionist.h"
-#include "LinkedList.h"
+#include <iostream>
 
-struct ServiceRecord {
-	LinkedList<Data> JobSheetLL;
-	std::string Date = "11/11/19";
-	bool Stamped = true;
-};
+struct ServiceRecord;
+class Receptionist;
+class Car;
+class LinkedList;
 
 class Customer {
 public:
-	ServiceRecord MyOldServiceRecord;
-	ServiceRecord MyNewServiceRecord;
-	LinkedList<Data> MyJobSheet;
+	ServiceRecord* MyOldServiceRecord;
+	ServiceRecord* MyNewServiceRecord;
+	LinkedList* MyJobSheet;
 	Receptionist* MyReceptionist;
-	Car MyCar;
+	Car* MyCar;
 
+
+	Customer();
 	void ComeBackLater();
 	void PrintInvoice();
 	void SetJobSheet();
@@ -34,28 +32,4 @@ public:
 	void AddReceptionist(Receptionist* GivenReceptionist);
 };
 
-void Customer::ComeBackLater() {
-	std::cout << "Customer going away, will come back later to pick up the car" << std::endl;
-}
-
-void Customer::PrintInvoice() {
-
-}
-
-void Customer::SetJobSheet() {
-
-}
-
-void Customer::SetNewServiceRecord() {
-
-}
-
-void Customer::GiveCarBack() {
-
-}
-
-//Extra
-void Customer::AddReceptionist(Receptionist* GivenReceptionist) {
-	MyReceptionist = GivenReceptionist;
-}
 #endif

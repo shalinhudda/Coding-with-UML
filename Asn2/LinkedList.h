@@ -1,35 +1,48 @@
 #ifndef __LinkedList__
 #define __LinkedList__
 #include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string>
 
-template <class T>
+
+using namespace std;
+
+struct Data {
+	int PartNumber = 0;
+	int Quantity = 0;
+	double Cost = 0;
+	std::string Message;
+};
+
+
 class Node {
 
 public:
 	Node* next;
-	T data;
+	Data data;
 };
 
-template <class T>
+
 class LinkedList {
-	Node<T>* Temp;
+	Node* Temp;
 
 public:
-	Node<T>* Head;
+	Node* Head;
 
 	LinkedList() : Head(NULL), Temp(NULL) {}
 	~LinkedList() { std::cout << "Deleting LinkedList\n"; }
 
-	void Insert(T data) {
+	void Insert(Data data) {
 		if (Head == NULL) {
-			Node<T>* FirstNode = new Node<T>;
+			Node* FirstNode = new Node;
 			FirstNode->data = data;
 			FirstNode->next = NULL;
 			Head = FirstNode;
 			Temp = FirstNode;
 		}
 		else {
-			Node<T>* NewNode = new Node<T>;
+			Node* NewNode = new Node;
 			NewNode->data = data;
 			NewNode->next = NULL;
 			Temp->next = NewNode;
@@ -38,7 +51,7 @@ public:
 	}
 
 	void Delete() {
-		Node<T>* CopyHead = Head;
+		Node* CopyHead = Head;
 
 		while (CopyHead->next != NULL) {
 			Temp = CopyHead;
@@ -52,11 +65,11 @@ public:
 	}
 
 	void Print() {
-		Node<T>* CopyHead = Head;
+		Node* CopyHead = Head;
 		while (CopyHead->next != NULL) {
-			std::cout << CopyHead->data << "\n";
+			printf("%s", CopyHead->data);
 			CopyHead = CopyHead->next;
-			if (CopyHead->next == NULL) { std::cout << CopyHead->data << "\n"; }
+			if (CopyHead->next == NULL) { printf("%s", CopyHead->data); }
 		}
 	}
 	

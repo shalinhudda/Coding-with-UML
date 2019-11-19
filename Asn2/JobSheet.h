@@ -1,18 +1,15 @@
+#pragma once
+#ifndef __JobSheet__
+#define __JobSheet__
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
 
 #include "LinkedList.h"
 
-struct Data {
-	int PartNumber = 0;
-	int Quantity = 0;
-	double Cost = 0;
-	std::string Message;
-};
-
 class JobSheet {
-	LinkedList<Data> JobSheetList;
+	LinkedList* JobSheetList;
 
 	// Extra
 	double TotalCost = 0;
@@ -21,7 +18,8 @@ public:
 	void AddLabourItem(std::string LaboutItem, double Cost);
 
 	// Extra
-	LinkedList<Data> GetJobList();
+	LinkedList* GetJobList();
 	double GetTotalCost();
 };
 
+#endif
