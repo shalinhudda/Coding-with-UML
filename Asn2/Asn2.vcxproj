@@ -124,6 +124,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Customer.cpp" />
+    <ClCompile Include="JobSheet.cpp" />
     <ClCompile Include="Receptionist.cpp" />
     <ClCompile Include="Technician.cpp" />
   </ItemGroup>

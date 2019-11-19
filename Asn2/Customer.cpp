@@ -1,7 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "LinkedList.h"
+#include "Customer.h"
+#include "Receptionist.h"
 
-class Customer {
+int main() {
 
-};
+
+	Customer* TheCustomer = new Customer;
+	Receptionist* TheReceptionist = new Receptionist;
+
+	TheCustomer->AddReceptionist(TheReceptionist);
+	TheReceptionist->AddCustomer(TheCustomer);
+
+
+}

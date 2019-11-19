@@ -50,16 +50,6 @@ public:
 			}
 		}
 	}
-	
-	T Get(int position) {
-		int index = 1;
-		Node<T>* CopyHead = Head;
-		while (index < position) {
-			CopyHead = CopyHead->next;
-			index++;
-		}
-		return CopyHead->data;
-	}
 
 	void Print() {
 		Node<T>* CopyHead = Head;
