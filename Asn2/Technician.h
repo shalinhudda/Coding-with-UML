@@ -10,6 +10,8 @@ class Receptionist;
 class JobSheet;
 class Store;
 class Car;
+class Garbage;
+class Recycling;
 
 struct Tires {
 	std::string TireBrand;
@@ -39,6 +41,8 @@ struct AirFilter {
 class Technician {
 	Receptionist* MyReceptionist;
 	Store* MyStore;
+	Garbage* MyGarbage;
+	Recycling* MyRecycling;
 
 public:
 	Tires OldTires;
@@ -55,7 +59,7 @@ public:
 
 	Technician();
 	void ServiceCar(Car* CarToService);
-
+	~Technician();
 	// Extra
 	void AddReceptionist(Receptionist* GivenReceptionist);
 };

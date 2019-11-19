@@ -18,6 +18,7 @@ public:
 	void AddLabourItem(std::string LaboutItem, double Cost);
 
 	JobSheet();
+	~JobSheet();
 	// Extra
 	LinkedList* GetJobList();
 	double GetTotalCost();

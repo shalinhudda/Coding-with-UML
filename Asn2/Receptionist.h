@@ -38,7 +38,7 @@ public:
 	void AddCustomer(Customer* GivenCustomer);
 	void AddTechnician(Technician* GivenTechnician);
 	
-	~Receptionist() {};
+	~Receptionist();
 };
 
 

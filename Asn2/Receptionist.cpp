@@ -15,6 +15,10 @@ Receptionist::Receptionist() {
 	RequiredCustomerPayment = 0;
 }
 
+Receptionist::~Receptionist() {
+	delete CustomerNewServiceRecord;
+}
+
 void Receptionist::GetCarFromCustomer() {
 	CustomerCar = MyCustomer->MyCar;
 	cout << "Car recieved from customer" << endl;

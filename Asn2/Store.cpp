@@ -8,6 +8,13 @@ Store::Store() {
 	NewTires = new Tires;
 }
 
+Store::~Store() {
+	delete NewOil;
+	delete NewOilFilter;
+	delete NewAirFilter;
+	delete NewTires;
+}
+
 Oil* Store::GetOil(std::string OilType, int Quantity) {
 	NewOil->OilType = OilType;
 	NewOil->OilLife = 100;

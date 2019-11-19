@@ -60,6 +60,11 @@ Customer::Customer() {
 
 }
 
+Customer::~Customer() {
+	delete MyCar;
+	delete MyOldServiceRecord;
+}
+
 void Customer::ComeBackLater() {
 	std::cout << "Customer going away, will come back later to pick up the car" << std::endl;
 }
@@ -103,9 +108,8 @@ int main() {
 	TheReceptionist->GetOldServiceRecord();
 	TheReceptionist->GetCarFromCustomer();
 
-	TheCustomer->ComeBackLater();
 	TheTechnician->ServiceCar(TheReceptionist->CustomerCar);
-	TheReceptionist->MakeCoffee();
+
 	TheReceptionist->GetCarFromTech();
 	TheReceptionist->GetJobSheetFromTech();
 	TheReceptionist->GenerateInvoice();
@@ -113,9 +117,19 @@ int main() {
 
 	TheCustomer->PrintInvoice();
 	TheCustomer->SetJobSheet();
+
+	cout << endl;
+	cout << "Printing car job sheet after the car has been serviced" << endl;
+	cout << "******************************************************************************************************" << endl;
+	TheCustomer->MyJobSheet->Print();
+	cout<< "Total Cost: " << TheReceptionist->JobSheetFromTech->GetTotalCost() << endl;
+	cout << "******************************************************************************************************" << endl;
+	cout << endl;
+
 	TheCustomer->SetNewServiceRecord();
 	
 	TheReceptionist->GetPayment();
 	TheCustomer->GiveCarBack();
+
 
 }

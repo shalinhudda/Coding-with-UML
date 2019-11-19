@@ -26,7 +26,7 @@ public:
 	void SetJobSheet();
 	void SetNewServiceRecord();
 	void GiveCarBack();
-	~Customer() {};
+	~Customer();
 
 	//Extra
 	void AddReceptionist(Receptionist* GivenReceptionist);

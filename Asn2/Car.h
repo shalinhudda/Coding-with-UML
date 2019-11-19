@@ -21,5 +21,5 @@ public:
 	bool CheckTiresForWear();
 	Tires* SwapTires(Tires* NewTires);
 	void RotateTires();
-	~Car() {};
+	~Car();
 };
