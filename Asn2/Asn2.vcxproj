@@ -125,8 +125,10 @@
   <ItemGroup>
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="Customer.cpp" />
+    <ClCompile Include="Garbage.cpp" />
     <ClCompile Include="JobSheet.cpp" />
     <ClCompile Include="Receptionist.cpp" />
+    <ClCompile Include="Recycling.cpp" />
     <ClCompile Include="Store.cpp" />
     <ClCompile Include="Technician.cpp" />
   </ItemGroup>

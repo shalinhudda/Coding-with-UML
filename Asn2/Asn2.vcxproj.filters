@@ -33,6 +33,12 @@
     <ClCompile Include="Store.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Recycling.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Garbage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Customer.h">
