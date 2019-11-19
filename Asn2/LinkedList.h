@@ -67,9 +67,11 @@ public:
 	void Print() {
 		Node* CopyHead = Head;
 		while (CopyHead->next != NULL) {
-			printf("%s", CopyHead->data);
+			cout << CopyHead->data.Message << ", " << CopyHead->data.PartNumber << ", " << CopyHead->data.Cost << ", " << CopyHead->data.Quantity << endl;
 			CopyHead = CopyHead->next;
-			if (CopyHead->next == NULL) { printf("%s", CopyHead->data); }
+			if (CopyHead->next == NULL) {
+				cout << CopyHead->data.Message << ", " << CopyHead->data.PartNumber << ", " << CopyHead->data.Cost << ", " << CopyHead->data.Quantity << endl;
+			}
 		}
 	}
 	

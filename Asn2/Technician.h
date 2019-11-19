@@ -41,7 +41,9 @@ public:
 	Oil OldOil;
 	OilFilter OldOilFilter;
 	AirFilter OldAirFilter;
+	Car* CustomerCar;
 
+	Technician();
 	void ServiceCar(Car* CarToService);
 
 	// Extra

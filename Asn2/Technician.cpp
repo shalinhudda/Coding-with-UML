@@ -6,8 +6,12 @@
 #include "JobSheet.h"
 #include "Car.h"
 
-void Technician::ServiceCar(Car* CarToService) {
+Technician::Technician() {
 
+}
+
+void Technician::ServiceCar(Car* CarToService) {
+	cout <<  "Technician has the customer's car for servicing" << endl;
 }
 
 // Extra

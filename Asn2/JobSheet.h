@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <iostream>
 
-#include "LinkedList.h"
+class LinkedList;
 
 class JobSheet {
 	LinkedList* JobSheetList;

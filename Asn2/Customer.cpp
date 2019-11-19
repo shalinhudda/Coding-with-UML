@@ -6,13 +6,55 @@
 #include "JobSheet.h"
 #include "Car.h"
 
+#define OIL_PN 1
+#define OIL_COST 5.5
+#define OIL_QUANTITY 1
+#define TIRE_PN 2
+#define TIRE_COST 200
+#define TIRE_QUANTITY 4
+#define OIL_FILTER_PN 3
+#define OIL_FILTER_COST 20
+#define	OIL_FILTER_QUANTITY 1
+#define AIR_FILTER_PN 4
+#define AIR_FILTER_COST 15
+#define AIR_FILTER_QUANTITY 2
+
+
 Customer::Customer() {
-	MyNewServiceRecord = NULL;
+	MyNewServiceRecord = new ServiceRecord;
 	MyJobSheet = NULL;
 	MyReceptionist = NULL;
 
 	// Setup MyCar here
-	MyOldServiceRecord->JobSheetLL = NULL;
+	MyOldServiceRecord = new ServiceRecord;
+	Data Oil, OilFilter, AirFilter, Tires;
+	
+	// Adding old car properties
+	Oil.PartNumber = OIL_PN;
+	Oil.Cost = OIL_COST * OIL_QUANTITY;
+	Oil.Quantity = OIL_QUANTITY;
+	Oil.Message = "Oil";
+
+	OilFilter.PartNumber = OIL_FILTER_PN;
+	OilFilter.Cost = OIL_FILTER_COST * OIL_FILTER_QUANTITY;
+	OilFilter.Quantity = OIL_FILTER_QUANTITY;
+	OilFilter.Message = "Oil Filter";
+
+	AirFilter.PartNumber = AIR_FILTER_PN;
+	AirFilter.Cost = AIR_FILTER_COST * AIR_FILTER_QUANTITY;
+	AirFilter.Quantity = AIR_FILTER_QUANTITY;
+	AirFilter.Message = "Air Filter";
+
+	Tires.PartNumber = TIRE_PN;
+	Tires.Cost = TIRE_COST * TIRE_QUANTITY;
+	Tires.Quantity = TIRE_QUANTITY;
+	Tires.Message = "Tires";
+	// End
+
+	MyOldServiceRecord->JobSheetLL->Insert(Oil);
+	MyOldServiceRecord->JobSheetLL->Insert(OilFilter);
+	MyOldServiceRecord->JobSheetLL->Insert(AirFilter);
+	MyOldServiceRecord->JobSheetLL->Insert(Tires);
 	MyOldServiceRecord->Date = "11//11//19";
 	MyOldServiceRecord->Stamped = true;
 
@@ -23,19 +65,22 @@ void Customer::ComeBackLater() {
 }
 
 void Customer::PrintInvoice() {
-	std::cout << MyReceptionist->JobSheetFromTech->GetTotalCost() << endl;
+	std::cout << "Total cost that customer needs to pay is " << MyReceptionist->JobSheetFromTech->GetTotalCost() << endl;
 }
 
 void Customer::SetJobSheet() {
 	MyJobSheet = MyReceptionist->JobSheetFromTech->GetJobList();
+	cout << "Job sheet recieved from the receptionist" << endl;
 }
 
 void Customer::SetNewServiceRecord() {
 	MyNewServiceRecord = MyReceptionist->CustomerNewServiceRecord;
+	cout << "New service record recieved from the receptionist" << endl;
 }
 
 void Customer::GiveCarBack() {
 	MyCar = MyReceptionist->CustomerCar;
+	cout << "Recieved service car back from the receptionist" << endl;
 }
 
 //Extra
@@ -45,8 +90,8 @@ void Customer::AddReceptionist(Receptionist* GivenReceptionist) {
 
 int main() {
 
-	Customer* TheCustomer = new Customer;
-	Receptionist* TheReceptionist = new Receptionist;
+	Customer* TheCustomer = new Customer();
+	Receptionist* TheReceptionist = new Receptionist();
 	Technician* TheTechnician = new Technician;
 
 	// Enabling objects to be able identify each other
@@ -54,5 +99,23 @@ int main() {
 	TheReceptionist->AddCustomer(TheCustomer);
 	TheReceptionist->AddTechnician(TheTechnician);
 	TheTechnician->AddReceptionist(TheReceptionist);
+
+	TheReceptionist->GetOldServiceRecord();
+	TheReceptionist->GetCarFromCustomer();
+
+	TheCustomer->ComeBackLater();
+	TheTechnician->ServiceCar(TheReceptionist->CustomerCar);
+	TheReceptionist->MakeCoffee();
+	TheReceptionist->GetCarFromTech();
+	TheReceptionist->GetJobSheetFromTech();
+	TheReceptionist->GenerateInvoice();
+	TheReceptionist->StampServiceRecord();
+
+	TheCustomer->PrintInvoice();
+	TheCustomer->SetJobSheet();
+	TheCustomer->SetNewServiceRecord();
+	
+	TheReceptionist->GetPayment();
+	TheCustomer->GiveCarBack();
 
 }
