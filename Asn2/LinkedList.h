@@ -1,7 +1,14 @@
 #ifndef __LinkedList__
 #define __LinkedList__
 #include <iostream>
-#include "Node.h"
+
+template <class T>
+class Node {
+
+public:
+	Node* next;
+	T data;
+};
 
 template <class T>
 class LinkedList {
