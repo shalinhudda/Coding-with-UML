@@ -39,13 +39,14 @@ struct AirFilter {
 };
 
 class Technician {
-	Receptionist* MyReceptionist;
+
 	Store* MyStore;
 	Garbage* MyGarbage;
 	Recycling* MyRecycling;
 
 public:
 	Tires OldTires;
+	Receptionist* MyReceptionist;
 	bool CustomerTireStatus = OldTires.TireCondition;
 	JobSheet* CustomerJobSheet;
 	Oil NewOil;
@@ -60,8 +61,7 @@ public:
 	Technician();
 	void ServiceCar(Car* CarToService);
 	~Technician();
-	// Extra
-	void AddReceptionist(Receptionist* GivenReceptionist);
+
 };
 
 #endif

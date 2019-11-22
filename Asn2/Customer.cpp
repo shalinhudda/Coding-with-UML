@@ -91,6 +91,7 @@ void Customer::GiveCarBack() {
 //Extra
 void Customer::AddReceptionist(Receptionist* GivenReceptionist) {
 	MyReceptionist = GivenReceptionist;
+	MyReceptionist->MyCustomer = this;
 }
 
 int main() {
@@ -101,9 +102,7 @@ int main() {
 
 	// Enabling objects to be able identify each other
 	TheCustomer->AddReceptionist(TheReceptionist);
-	TheReceptionist->AddCustomer(TheCustomer);
 	TheReceptionist->AddTechnician(TheTechnician);
-	TheTechnician->AddReceptionist(TheReceptionist);
 
 	TheReceptionist->GetOldServiceRecord();
 	TheReceptionist->GetCarFromCustomer();

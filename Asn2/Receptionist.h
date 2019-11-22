@@ -15,10 +15,11 @@ struct ServiceRecord {
 };
 
 class Receptionist {
-	Customer* MyCustomer;
+
 	Technician* MyTechnician;
 public:
 	Car* CustomerCar;
+	Customer* MyCustomer;
 	double RequiredCustomerPayment;
 	ServiceRecord* CustomerOldServiceRecord;
 	ServiceRecord* CustomerNewServiceRecord;
@@ -35,7 +36,6 @@ public:
 	void StampServiceRecord();
 	
 	// Extra
-	void AddCustomer(Customer* GivenCustomer);
 	void AddTechnician(Technician* GivenTechnician);
 	
 	~Receptionist();

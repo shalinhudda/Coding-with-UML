@@ -69,11 +69,7 @@ void Receptionist::StampServiceRecord() {
 }
 
 // Extra
-void Receptionist::AddCustomer(Customer* GivenCustomer) {
-	MyCustomer = GivenCustomer;
-}
-
-// Extra
 void Receptionist::AddTechnician(Technician* GivenTechnician) {
 	MyTechnician = GivenTechnician;
+	MyTechnician->MyReceptionist = this;
 }

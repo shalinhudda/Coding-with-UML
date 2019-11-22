@@ -98,8 +98,3 @@ void Technician::ServiceCar(Car* CarToService) {
 	cout << endl;
 
 }
-
-// Extra
-void Technician::AddReceptionist(Receptionist* GivenReceptionist) {
-	MyReceptionist = GivenReceptionist;
-}
