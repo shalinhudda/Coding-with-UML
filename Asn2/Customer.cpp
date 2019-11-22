@@ -66,29 +66,38 @@ Customer::~Customer() {
 }
 
 void Customer::ComeBackLater() {
-	std::cout << "Customer going away, will come back later to pick up the car" << std::endl;
+	if (MyReceptionist != NULL) {
+		std::cout << "Customer going away, will come back later to pick up the car" << std::endl;
+	}
 }
 
 void Customer::PrintInvoice() {
-	std::cout << "Total cost that customer needs to pay is " << MyReceptionist->JobSheetFromTech->GetTotalCost() << endl;
+	if (MyReceptionist != NULL) {
+		std::cout << "Total cost that customer needs to pay is " << MyReceptionist->JobSheetFromTech->GetTotalCost() << endl;
+	}
 }
 
 void Customer::SetJobSheet() {
-	MyJobSheet = MyReceptionist->JobSheetFromTech->GetJobList();
-	cout << "Job sheet recieved from the receptionist" << endl;
+	if(MyReceptionist != NULL) {
+		MyJobSheet = MyReceptionist->JobSheetFromTech->GetJobList();
+		cout << "Job sheet recieved from the receptionist" << endl;
+	}
 }
 
 void Customer::SetNewServiceRecord() {
-	MyNewServiceRecord = MyReceptionist->CustomerNewServiceRecord;
-	cout << "New service record recieved from the receptionist" << endl;
+	if (MyReceptionist != NULL) {
+		MyNewServiceRecord = MyReceptionist->CustomerNewServiceRecord;
+		cout << "New service record recieved from the receptionist" << endl;
+	}
 }
 
 void Customer::GiveCarBack() {
-	MyCar = MyReceptionist->CustomerCar;
-	cout << "Recieved serviced car back from the receptionist" << endl;
+	if (MyReceptionist != NULL) {
+		MyCar = MyReceptionist->CustomerCar;
+		cout << "Recieved serviced car back from the receptionist" << endl;
+	}
 }
 
-//Extra
 void Customer::AddReceptionist(Receptionist* GivenReceptionist) {
 	MyReceptionist = GivenReceptionist;
 	MyReceptionist->MyCustomer = this;
