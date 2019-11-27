@@ -5,6 +5,7 @@
 #include "Technician.h"
 #include "JobSheet.h"
 #include "Car.h"
+#include <assert.h>
 
 #define OIL_PN 1
 #define OIL_COST 5.5
@@ -74,6 +75,7 @@ void Customer::ComeBackLater() {
 void Customer::PrintInvoice() {
 	if (MyReceptionist != NULL) {
 		std::cout << "Total cost that customer needs to pay is " << MyReceptionist->JobSheetFromTech->GetTotalCost() << endl;
+
 	}
 }
 

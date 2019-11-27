@@ -5,6 +5,7 @@
 #include "Technician.h"
 #include "JobSheet.h"
 #include "Car.h"
+#include <assert.h>
 
 
 Receptionist::Receptionist() {
@@ -70,6 +71,7 @@ void Receptionist::GetJobSheetFromTech()
 void Receptionist::GenerateInvoice() {
 	if (JobSheetFromTech != NULL) {
 		RequiredCustomerPayment = JobSheetFromTech->GetTotalCost();
+		assert(RequiredCustomerPayment == 913.5);
 		cout << "Total payment required by the customer is " << RequiredCustomerPayment << endl;
 	}
 }

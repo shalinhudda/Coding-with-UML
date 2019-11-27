@@ -2,6 +2,7 @@
 #include "Technician.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <assert.h>
 
 Car::Car() {
 	CurrentOil = new Oil;
@@ -17,7 +18,7 @@ Car::Car() {
 	CurrentAirFilter->AirFilterType = "Best air filter";
 	CurrentAirFilter->AirFilterStatus = false;
 	CurrentTires->TireBrand = "Michellen";
-	CurrentTires->TireCondition = false;
+	CurrentTires->TireCondition = false;// turn to false again 
 	CurrentTires->TireQuantity = 4;
 }
 
@@ -50,6 +51,7 @@ bool Car::CheckTiresForWear() {
 	if (!CurrentTires->TireCondition) {
 		// If worn then return true
 		return true;
+		assert(true);
 	}
 	else {
 		// If not worn then return false
