@@ -8,6 +8,7 @@
 #include "Car.h"
 #include "Recycling.h"
 #include "Store.h"
+#include<assert.h>
 
 #define OIL_PN 1
 #define OIL_COST 5.5
@@ -58,17 +59,26 @@ void Technician::ServiceCar(Car* CarToService) {
 		cout << endl;
 
 		NewOil = *MyStore->GetOil("Non-Synthetic", OIL_QUANTITY);
+		assert(NewOil.OilType == "Non-Synthetic");
+		assert(NewOil.OilLife == 100);
 		CustomerJobSheet->AddItem(OIL_PN, OIL_QUANTITY, OIL_COST);
 		NewAirFilter = *MyStore->GetAirFilter();
+		assert(NewAirFilter.AirFilterStatus == true);
+		assert(NewAirFilter.AirFilterType=="Best air filter");
 		CustomerJobSheet->AddItem(AIR_FILTER_PN, AIR_FILTER_QUANTITY, AIR_FILTER_COST);
 		NewOilFilter = *MyStore->GetOilFilter();
+		assert(NewOilFilter.OilFilterType == "Best oil filter");
+		assert(NewOilFilter.OilFilterStatus == true);
 		CustomerJobSheet->AddItem(OIL_FILTER_PN, OIL_FILTER_QUANTITY, OIL_FILTER_COST);
 
 		OldOil = *CustomerCar->SwapOil(&NewOil);
+		assert(CustomerCar->CurrentOil->OilType == "Non-Synthetic");
+		assert(CustomerCar->CurrentOil->OilLife == 100);
 		MyRecycling->Recycle(&OldOil);
 		CustomerJobSheet->AddLabourItem("Oil change labour", LABOUR_COST_OIL_CHANGE);
 
 		OldOilFilter = *CustomerCar->SwapOilFilter(&NewOilFilter);
+		
 		MyGarbage->Dispose(&OldOilFilter);
 		CustomerJobSheet->AddLabourItem("Oil filter change labour", LABOUR_COST_OIL_FILTER_CHANGE);
 
@@ -80,6 +90,7 @@ void Technician::ServiceCar(Car* CarToService) {
 			NewTires = *MyStore->GetTires("Good Year", 18, 4);
 			CustomerJobSheet->AddItem(TIRE_PN, TIRE_QUANTITY, TIRE_COST);
 			OldTires = *CustomerCar->SwapTires(&NewTires);
+			//assert(CustomerCar->CheckTiresForWear = true);
 			MyRecycling->Recycle(&OldTires);
 			CustomerJobSheet->AddLabourItem("Tire change labour", LABOUR_COST_TIRE_CHANGE);
 		}

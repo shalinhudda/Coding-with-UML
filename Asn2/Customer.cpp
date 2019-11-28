@@ -108,6 +108,12 @@ void Customer::AddReceptionist(Receptionist* GivenReceptionist) {
 int main() {
 
 	Customer* TheCustomer = new Customer();
+	
+	Car* RandomCar = TheCustomer->MyCar;
+	RandomCar->CurrentTires->TireCondition = true;
+	TheCustomer->MyCar = RandomCar;
+
+
 	Receptionist* TheReceptionist = new Receptionist();
 	Technician* TheTechnician = new Technician;
 
@@ -119,7 +125,7 @@ int main() {
 	TheReceptionist->GetCarFromCustomer();
 
 	TheTechnician->ServiceCar(TheReceptionist->CustomerCar);
-
+	
 	TheReceptionist->GetCarFromTech();
 	TheReceptionist->GetJobSheetFromTech();
 	TheReceptionist->GenerateInvoice();
@@ -137,7 +143,7 @@ int main() {
 	cout << endl;
 
 	TheCustomer->SetNewServiceRecord();
-	
+	assert(TheReceptionist->RequiredCustomerPayment == 93.5);
 	TheReceptionist->GetPayment();
 	TheCustomer->GiveCarBack();
 
